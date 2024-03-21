@@ -30,10 +30,10 @@ COPY index.html index.php ./
 # コンテナのポート80を外部に公開
 EXPOSE 80
 
-# シェルバージョン
-COPY /nginx/run.sh /usr/local/bin/run.sh
-RUN chmod +x /usr/local/bin/run.sh
-ENTRYPOINT ["run.sh"]
+# ラッパーシェルバージョン
+# COPY /nginx/run.sh /usr/local/bin/run.sh
+# RUN chmod +x /usr/local/bin/run.sh
+# ENTRYPOINT ["run.sh"]
 
-# コンテナ起動時に実行するコマンド
-# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# supervisorバージョン
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
